@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="txt/css" href="css/main.css"/>
     <title>Contact Manager - Home</title>
 </head>
 <body>
@@ -9,6 +9,16 @@
 
     <main>
         <h2>Contact List</h2>
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email Address</th>
+                <th>Phone Number</th>
+                <th>Status</th>
+                <th>Birth Date</th>
+            </tr>
+        </table>
     </main>
 
     <?php include ("footer.php"); ?>
