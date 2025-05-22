@@ -5,8 +5,8 @@
  <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="txt/css" href="css/main.css"/>
     <title>Contact Manager - Database Error</title>
+    <link rel="stylesheet" type="txt/css" href="css/main.css"/>
 </head>
 <body>
     <?php include ("header.php"); ?>
