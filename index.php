@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <link rel="stylesheet" type="txt/css" href="css/main.css"/>
     <title>Contact Manager - Home</title>
