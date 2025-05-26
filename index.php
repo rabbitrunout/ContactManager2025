@@ -39,6 +39,7 @@
                 </tr>
                 <?php endforeach; ?>
         </table>
+        <p><a href="add_contact_form.php"> Add Contact </a><p>
     </main>
 
     <?php include ("footer.php"); ?>
