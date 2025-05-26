@@ -47,7 +47,7 @@
     else
     {
 
-    require_once('database.php');
+    // require_once('database.php');
 
         //Add the contact to the database
         $query = 'INSERT INTO contacts
