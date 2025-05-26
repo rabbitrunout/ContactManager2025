@@ -25,7 +25,7 @@
     {
         if ($email_address == $contact["emailAddress"])
         {
-            $_SESSION["add_error"] = "Invalid datas, Duplicate Email Address. Try again."
+            $_SESSION["add_error"] = "Invalid datas, Duplicate Email Address. Try again.";
 
             $url = "error.php";
             header("Location: " . $url);
@@ -37,7 +37,7 @@
         $email_address == null || $phone_number == null ||
         $dob == null)
     {
-         $_SESSION["add_error"] = "Invalid datas, Check all fields try again."
+         $_SESSION["add_error"] = "Invalid datas, Check all fields try again.";
 
             $url = "error.php";
             header("Location: " . $url);
@@ -46,8 +46,6 @@
     }
     else
     {
-
-        
 
     require_once('database.php');
 
@@ -76,9 +74,5 @@
     $url = "confirmation.php";
     header("Location: " . $url);
     die(); //releases add_contact.php from memory
-
-
-
-
 
 ?>

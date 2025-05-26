@@ -17,8 +17,8 @@
             <?php  echo $_SESSION["add_error"];  ?>  
         </p>
 
-        <p><a href="add_contact_form.php"> Add Contact </a><p>
-        <p><a href="index.php"> View Contact List </a><p>
+        <p><a href="add_contact_form.php"> Add Contact </a></p>
+        <p><a href="index.php"> View Contact List </a></p>
     </main>
 
     <?php include ("footer.php"); ?>

@@ -41,7 +41,7 @@
             </div>
         </form>
 
-        <p><a href="index.php"> View Contsct List </a></p>
+        <p><a href="index.php"> View Contact List </a></p>
     </main>
 
     <?php include ("footer.php"); ?>

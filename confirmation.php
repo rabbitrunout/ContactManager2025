@@ -18,7 +18,7 @@
             saving you contact information.
             We look forward to working with you.
         </p>
-        <p><a href="index.php"> Back to Home </a><p>
+        <p><a href="index.php"> Back to Home </a></p>
     </main>
 
     <?php include ("footer.php"); ?>
