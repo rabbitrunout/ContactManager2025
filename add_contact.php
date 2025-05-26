@@ -14,23 +14,61 @@
     $dob = filter_input(INPUT_POST, 'dob');
 
     require_once('database.php');
+    $queryContacts = 'SELECT * FROM contacts';
+    $statement1 = $db->prepare($queryContacts);
+    $statement1->execute();
+    $contacts = $statement1->fetchALL();
 
-    //Add the contact to the database
-    $query = 'INSERT INTO contacts
-        (firsrName, lastName, emailAddress, phone, status, dob)
-        VALUES
-        (:firstName, :lastName, :emailAddress, :phone, :status, :dob)';
+    $statement1->closeCursor();
 
-    $statemet = $db->prepare($query);
-    $statemet->bindValue(':firstName', $first_name);   
-    $statemet->bindValue(':lastName', $last_name); 
-    $statemet->bindValue(':emailAddress', $email_address); 
-    $statemet->bindValue(':phone', $phone_number); 
-    $statemet->bindValue(':status', $status); 
-    $statemet->bindValue(':dob', $dob); 
+    foreach ($contacts as $contact)
+    {
+        if ($email_address == $contact["emailAddress"])
+        {
+            $_SESSION["add_error"] = "Invalid datas, Duplicate Email Address. Try again."
 
-    $statemet->execute();
-    $statemet->closeCursor();
+            $url = "error.php";
+            header("Location: " . $url);
+            die();
+        }
+    }
+
+    if ($first_name == null || $last_name == null ||
+        $email_address == null || $phone_number == null ||
+        $dob == null)
+    {
+         $_SESSION["add_error"] = "Invalid datas, Check all fields try again."
+
+            $url = "error.php";
+            header("Location: " . $url);
+            die();
+
+    }
+    else
+    {
+
+        
+
+    require_once('database.php');
+
+        //Add the contact to the database
+        $query = 'INSERT INTO contacts
+            (firstName, lastName, emailAddress, phone, status, dob)
+            VALUES
+            (:firstName, :lastName, :emailAddress, :phone, :status,     :dob)';
+
+        $statement = $db->prepare($query);
+        $statement->bindValue(':firstName', $first_name);   
+        $statement->bindValue(':lastName', $last_name); 
+        $statement->bindValue(':emailAddress', $email_address); 
+        $statement->bindValue(':phone', $phone_number); 
+        $statement->bindValue(':status', $status); 
+        $statement->bindValue(':dob', $dob); 
+
+        $statement->execute();
+        $statement->closeCursor();
+    
+    }
 
     $_SESSION["fullName"] = $first_name . " " . $last_name;
 
@@ -39,7 +77,7 @@
     header("Location: " . $url);
     die(); //releases add_contact.php from memory
 
-    
+
 
 
 

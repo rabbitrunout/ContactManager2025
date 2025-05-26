@@ -12,7 +12,7 @@
         <h2>Add Contact</h2>
         
         <form action="add_contact.php" method="post" id="add_contact_form" 
-              enctype="multipart/form-date" >
+              enctype="multipart/form-data" >
 
             <div id="data">
                 <label>First Name:</label>
