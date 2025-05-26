@@ -4,7 +4,7 @@
     $queryContacts = 'SELECT * FROM contacts';
     $statement1 = $db->prepare($queryContacts);
     $statement1->execute();
-    $contacts = $statement1->fetchALL();
+    $contacts = $statement1->fetchAll();
 
     $statement1->closeCursor();
 ?>

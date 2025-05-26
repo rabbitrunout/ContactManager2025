@@ -2,7 +2,9 @@
 
     session_start();
 
-    // get data from the form
+    require_once('database.php');
+
+    // Get form data
     $first_name = filter_input(INPUT_POST, 'first_name');
     // alternative
     // $first_name = $_POST['first_name'];
@@ -13,11 +15,13 @@
     $status = filter_input(INPUT_POST, 'status'); //assigns of the vakue selected radio button
     $dob = filter_input(INPUT_POST, 'dob');
 
-    require_once('database.php');
+
+    // Check for duplicate email
+    // require_once('database.php');
     $queryContacts = 'SELECT * FROM contacts';
     $statement1 = $db->prepare($queryContacts);
     $statement1->execute();
-    $contacts = $statement1->fetchALL();
+    $contacts = $statement1->fetchAll();
 
     $statement1->closeCursor();
 
@@ -25,19 +29,19 @@
     {
         if ($email_address == $contact["emailAddress"])
         {
-            $_SESSION["add_error"] = "Invalid datas, Duplicate Email Address. Try again.";
+            $_SESSION["add_error"] = "Invalid data. Duplicate email address. Try again.";
 
             $url = "error.php";
             header("Location: " . $url);
             die();
         }
     }
-
+// Check for empty fields
     if ($first_name == null || $last_name == null ||
         $email_address == null || $phone_number == null ||
         $dob == null)
     {
-         $_SESSION["add_error"] = "Invalid datas, Check all fields try again.";
+         $_SESSION["add_error"] = "Invalid data. Please check all fields and try again.";
 
             $url = "error.php";
             header("Location: " . $url);
@@ -47,13 +51,12 @@
     else
     {
 
-    // require_once('database.php');
 
-        //Add the contact to the database
+        // Insert into database
         $query = 'INSERT INTO contacts
             (firstName, lastName, emailAddress, phone, status, dob)
             VALUES
-            (:firstName, :lastName, :emailAddress, :phone, :status,     :dob)';
+            (:firstName, :lastName, :emailAddress, :phone, :status, :dob)';
 
         $statement = $db->prepare($query);
         $statement->bindValue(':firstName', $first_name);   
@@ -67,7 +70,7 @@
         $statement->closeCursor();
     
     }
-
+// Save session data and redirect
     $_SESSION["fullName"] = $first_name . " " . $last_name;
 
     // redirect to confirmation page
