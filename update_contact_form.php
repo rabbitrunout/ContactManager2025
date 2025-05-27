@@ -17,7 +17,7 @@
 <html>
     <head>
         <title>Contact Manager - Update Contact</title>
-        <link rel="stylesheet" type="txt/css" href="css/main.css" />
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
     </head>
     <body>
         <?php include("header.php"); ?>
@@ -29,7 +29,6 @@
                 enctype="multipart/form-data">
 
                 <div id="data">
-
 
                     <input type="hidden" name="contact_id"
                         value="<?php echo $contact['contactID']; ?>" />
