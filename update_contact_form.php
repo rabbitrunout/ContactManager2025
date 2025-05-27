@@ -51,8 +51,10 @@
                 value="<?php  echo $contact['phone']; ?>"/> <br />   
                     
                 <label>Status:</label>
-                <input type="radio" name="status" value="member" /> Member <br />    
-                <input type="radio" name="status" value="nomember" /> Non-Member <br /> 
+                <input type="radio" name="status" value="member" 
+                <?php echo ($contact['status'] == 'member') ?'checked' : ''; ?>/> Member <br />    
+                <input type="radio" name="status" value="nonmember" 
+                <?php echo ($contact['status'] == 'nonmember') ?'checked' : ''; ?>/> Non-Member <br /> 
 
                 <label>Birth Date:</label>
                 <input type="date" name="dob"
@@ -61,7 +63,7 @@
 
             <div id="buttons">
                 <label>&nbsp;</label>
-                <input type="submit" value="Save Contact" /> <br />
+                <input type="submit" value="Update Contact" /> <br />
             </div>
         </form>
 
