@@ -29,10 +29,14 @@
                     
                 <label>Status:</label>
                 <input type="radio" name="status" value="member" /> Member <br />    
-                <input type="radio" name="status" value="nomember" /> Non-Member <br /> 
+                <input type="radio" name="status" value="nonmember" /> Non-Member <br />
+
 
                 <label>Birth Date:</label>
                 <input type="date" name="dob" /> <br />    
+
+                <label>Upload Image:</label>
+                <input type="file" name="file1" /> <br /> 
             </div>
 
             <div id="buttons">
