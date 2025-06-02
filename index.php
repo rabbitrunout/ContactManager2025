@@ -1,5 +1,13 @@
 <?php
     session_start();
+    if (!isset($_SESSION["isLoggedIn"]))
+    {
+        $url = "login_form.php";
+        header("location: " . $url);
+        die();
+    }
+
+
     require("database.php");
     $queryContacts = 'SELECT * FROM contacts';
     $statement1 = $db->prepare($queryContacts);
@@ -41,7 +49,7 @@
                         <td><?php echo $contact['phone']; ?></td>
                         <td><?php echo $contact['status']; ?></td>
                         <td><?php echo $contact['dob']; ?></td>
-                        <td><img src="<?php echo htmlspecialchars('./images/' . $contact['imageName']); ?>" alt="<?php echo htmlspecialchars('./images/' . $contact['imageName']); ?>" style="width:100px; height:auto;" /></td>
+                        <td><img src="<?php echo htmlspecialchars('./images/' . $contact['imageName']); ?>" alt="<?php echo htmlspecialchars('./images/' . $contact['imageName']); ?>"  /></td>
                         <td>
                             <form action="update_contact_form.php" method="post">
                                 <input type="hidden" name="contact_id"
@@ -61,6 +69,8 @@
 
             </table>
             <p><a href="add_contact_form.php">Add Contact</a></p>
+
+            <p><a href="logout.php">Logout</a></p>
         </main>
 
         <?php include("footer.php"); ?>

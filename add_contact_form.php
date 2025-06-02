@@ -28,8 +28,8 @@
                 <input type="text" name="phone_number" /> <br />   
                     
                 <label>Status:</label>
-                <input type="radio" name="status" value="member" /> Member <br />    
-                <input type="radio" name="status" value="nonmember" /> Non-Member <br />
+                <input type="radio" name="status" value="Member" /> Member <br />    
+                <input type="radio" name="status" value="Non-nmember" /> Non-Member <br />
 
 
                 <label>Birth Date:</label>

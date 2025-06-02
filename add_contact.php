@@ -32,7 +32,15 @@
     $phone_number = filter_input(INPUT_POST, 'phone_number');
     $status = filter_input(INPUT_POST, 'status'); // assigns the value of the selected radio button
     $dob = filter_input(INPUT_POST, 'dob');
-    $image_name = $_FILES['file1']['name'];
+    
+    $file_name = $_FILES['file1']['name'];
+
+     // adjust the filename
+    $i = strrpos($filename, '.');
+    $image_name = substr($filename, 0, $i);
+    $ext = substr($filename, $i);
+
+    $image_name_100 = $image_name . '_100' . $ext;
 
     require_once('database.php');
     $queryContacts = 'SELECT * FROM contacts';
@@ -56,7 +64,7 @@
 
     if ($first_name == null || $last_name == null ||
         $email_address == null || $phone_number == null ||
-        $dob == null)
+        $status == null || $dob == null )
     {
         $_SESSION["add_error"] = "Invalid contact data, Check all fields and try again.";
 
@@ -82,7 +90,7 @@
         $statement->bindValue(':phone', $phone_number);
         $statement->bindValue(':status', $status);
         $statement->bindValue(':dob', $dob);
-        $statement->bindValue(':imageName', $image_name);
+        $statement->bindValue(':imageName', $image_name_100);
 
         $statement->execute();
         $statement->closeCursor();
