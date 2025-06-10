@@ -8,11 +8,12 @@ body {
 
 main {
     padding: 20px;
-    max-width: 80%;
+    max-width: 90%;
     margin: auto;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    overflow-x: auto;
 }
 
 h2 {
@@ -20,12 +21,20 @@ h2 {
     color: #333;
 }
 
-/* ==== table contacts==== */
+/* ==== Адаптивная таблица ==== */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+/* ==== Стили таблицы ==== */
 table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: center;
-  margin-top: 20px;
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+    text-align: center;
 }
 
 table th, table td {
@@ -33,11 +42,12 @@ table th, table td {
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
+
 th, td {
-  padding: 10px;
-  border: 1px solid #ccc;
-  text-align: center; 
-  vertical-align: middle;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+    vertical-align: middle;
 }
 
 table th {
@@ -51,6 +61,7 @@ table tr:hover {
     background-color: #f1f1f1;
 }
 
+/* ==== Кнопки ==== */
 input[type="submit"] {
     background-color: #28a745;
     color: white;
@@ -65,7 +76,6 @@ input[type="submit"]:hover {
     background-color: #218838;
 }
 
-/* ==== links ==== */
 a {
     color: #007BFF;
     text-decoration: none;
@@ -75,7 +85,7 @@ a:hover {
     text-decoration: underline;
 }
 
-/* ==== form update ==== */
+/* ==== Обновление формы ==== */
 form#update_contact_form {
     margin-top: 20px;
     background-color: #ffffff;
@@ -124,7 +134,28 @@ form#update_contact_form input[type="submit"]:hover {
     background-color: #0056b3;
 }
 
+/* ==== Центровка текста ==== */
 p {
     text-align: center;
     margin-top: 20px;
+}
+
+/* ==== Адаптивные улучшения для маленьких экранов ==== */
+@media (max-width: 768px) {
+    main {
+        padding: 15px;
+    }
+
+    table {
+        font-size: 13px;
+    }
+
+    input[type="submit"] {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
 }
